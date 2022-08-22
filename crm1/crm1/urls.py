@@ -16,6 +16,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Home Page")
+
+def page1(request):
+    return HttpResponse("<h1>Page1</h1>")  # Page 
+
+def page2(request):
+    return(HttpResponse("page2"))
+
 urlpatterns = [
+    # Don't Forget , after each line
     path('admin/', admin.site.urls),
+    path('', home) , # Landing page just the domain name www.main.com
+    path('page1/', page1),
+    path('page2/', page2), 
 ]
+
